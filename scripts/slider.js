@@ -132,3 +132,28 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   });
+
+// Modal para mostrar imagen
+const imagenes = document.querySelectorAll('#tienda img');
+  const modal = document.getElementById('modal-imagen');
+  const imagenModal = document.getElementById('imagen-modal');
+  const cerrarModal = document.getElementById('cerrar-modal');
+
+  imagenes.forEach(imagen => {
+    imagen.addEventListener('click', () => {
+      imagenModal.src = imagen.src;
+      modal.classList.remove('hidden');
+    });
+  });
+
+  cerrarModal.addEventListener('click', () => {
+    modal.classList.add('hidden');
+    imagenModal.src = '';
+  });
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.add('hidden');
+      imagenModal.src = '';
+    }
+  });
