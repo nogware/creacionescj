@@ -1,27 +1,55 @@
 document.addEventListener('DOMContentLoaded', function () {
   // Slider
-  const slider = document.querySelector('#slider > div');
-  if (slider) {
-    const slides = slider.children.length;
-    let index = 0;
+// Slider
+const slider = document.querySelector('#slider > div');
+if (slider) {
+  const slides = slider.children.length;
+  let index = 0;
 
-    const nextBtn = document.getElementById('next');
-    const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const prevBtn = document.getElementById('prev');
 
-    if (nextBtn) {
-      nextBtn.onclick = () => {
-        index = (index + 1) % slides;
-        slider.style.transform = `translateX(-${index * 100}%)`;
-      };
-    }
+  const showSlide = () => {
+    slider.style.transform = `translateX(-${index * 100}%)`;
+  };
 
-    if (prevBtn) {
-      prevBtn.onclick = () => {
-        index = (index - 1 + slides) % slides;
-        slider.style.transform = `translateX(-${index * 100}%)`;
-      };
-    }
+  if (nextBtn) {
+    nextBtn.onclick = () => {
+      index = (index + 1) % slides;
+      showSlide();
+    };
   }
+
+  if (prevBtn) {
+    prevBtn.onclick = () => {
+      index = (index - 1 + slides) % slides;
+      showSlide();
+    };
+  }
+
+  // 🔁 Autoplay
+  let autoplay = setInterval(() => {
+    index = (index + 1) % slides;
+    showSlide();
+  }, 4000);
+
+  // 🛑 Pausar al pasar el mouse
+  const sliderContainer = document.querySelector('#slider');
+  sliderContainer.addEventListener('mouseenter', () => {
+    clearInterval(autoplay);
+  });
+
+  // ▶️ Reanudar al salir del mouse
+  sliderContainer.addEventListener('mouseleave', () => {
+    autoplay = setInterval(() => {
+      index = (index + 1) % slides;
+      showSlide();
+    }, 4000);
+  });
+}
+
+
+  
 
   // Navbar transparencia y menú hamburguesa
   const navbar = document.getElementById('main-navbar');
