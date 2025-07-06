@@ -2,56 +2,12 @@ body {
     margin: 0;
     font-family: 'Segoe UI', Arial, sans-serif;
     background: #fff8fc;
+    padding-top: 80px;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(90deg, #ffb6c1 0%, #ffe4e1 100%);
-    padding: 18px 40px;
-    box-shadow: 0 2px 8px rgba(255,182,193,0.15);
-}
 
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #e75480;
-    letter-spacing: 2px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: #e75480;
-    font-size: 1.1rem;
-    font-weight: 500;
-    transition: color 0.2s;
-}
-
-.nav-links li a:hover {
-    color: #dc99bf;
-}
-
-.btn-presupuesto {
-    background: #e75480;
-    color: #fff;
-    padding: 10px 22px;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 2px 8px rgba(231,84,128,0.15);
-    transition: background 0.2s, color 0.2s;
-}
-
-.btn-presupuesto:hover {
-    background: #ff69b4;
-    color: #fff8fc;
-}
+.navbar-faded {
+    background: linear-gradient(90deg, #ffb6c1cc 0%, #ffe4e1cc 100%); /* 80% opacidad */
+    backdrop-filter: blur(6px);
+    transition: background 0.3s ease;
+  }

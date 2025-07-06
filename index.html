@@ -4,40 +4,239 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <title>CreacionesCJ</title>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <div class="logo">CreacionesCJ</div>
-                <ul class="nav-links">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Diseños</a></li>
-                    <li><a href="#">Servicios</a></li>
-                    <li><a href="#">Galería</a></li>
-                    <li><a href="#">Contacto</a></li>
-                </ul>
-                        <a href="#" class="btn-presupuesto">Solicitar Presupuesto</a>
-        </nav>
-    </header>
-    <section class="servicios" id="servicios">
-        <h2>Servicios</h2>
-        <div class="servicio">
-            <img src="img/servicio1.jpg" alt="Servicio 1">
-            <h3>Diseño Gráfico</h3>
-            <p>Ofrecemos servicios de diseño gráfico personalizados para tu marca.</p>
+  <nav id="main-navbar" class="fixed top-0 left-0 w-full z-50 bg-[linear-gradient(90deg,_#ffb6c1_0%,_#ffe4e1_100%)] shadow transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <!-- Logo -->
+      <div class="logo text-2xl font-bold text-pink-600 tracking-wider">CreacionesCJ</div>
+
+      <!-- Botón hamburguesa -->
+      <button id="menu-toggle" class="md:hidden text-pink-600 focus:outline-none text-2xl">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <!-- Links -->
+      <ul id="nav-links" class="nav-links hidden flex-col md:flex-row md:flex gap-6 md:gap-8 items-center absolute left-0 top-full w-full md:static md:w-auto bg-white md:bg-transparent shadow md:shadow-none transition-all duration-300">
+        <li><a href="#" class="block py-2 md:py-0 text-pink-600 hover:text-pink-400 font-semibold">Inicio</a></li>
+        <li><a href="#servicios" class="block py-2 md:py-0 text-pink-600 hover:text-pink-400 font-semibold">Servicios</a></li>
+        <li><a href="#galeria" class="block py-2 md:py-0 text-pink-600 hover:text-pink-400 font-semibold">Galeria</a></li>
+        <li><a href="#tienda" class="block py-2 md:py-0 text-pink-600 hover:text-pink-400 font-semibold">Tienda</a></li>
+        <li class="md:hidden"><a href="#" class="block py-2 text-pink-600 hover:text-pink-400 font-semibold">Solicitar Presupuesto</a></li>
+      </ul>
+
+      <!-- Botón presupuesto (desktop) -->
+      <a href="#" class="btn-presupuesto hidden md:inline-block bg-pink-500 text-white px-5 py-2 rounded-full font-semibold hover:bg-pink-600 transition">Solicitar Presupuesto</a>
+    </div>
+  </nav>
+  <!-- Espacio para navbar fijo -->
+  <div class="h-20"></div>
+</header>
+
+    <!-- Slider Inicio -->
+    <div class="relative w-full max-w-4xl mx-auto mt-8 mb-12">
+      <div id="slider" class="overflow-hidden rounded-2xl shadow-lg">
+        <div class="flex transition-transform duration-500" style="transform: translateX(0%);">
+          <img src="img/slider1.jpg" class="w-full h-64 object-cover flex-shrink-0" alt="Slide 1">
+          <img src="img/slider2.jpg" class="w-full h-64 object-cover flex-shrink-0" alt="Slide 2">
+          <img src="img/slider3.jpg" class="w-full h-64 object-cover flex-shrink-0" alt="Slide 3">
         </div>
-        <div class="servicio">
-            <img src="img/servicio2.jpg" alt="Servicio 2">
-            <h3>Desarrollo Web</h3>
-            <p>Desarrollamos sitios web modernos y funcionales adaptados a tus necesidades.</p>
-        </div>
-        <div class="servicio">
-            <img src="img/servicio3.jpg" alt="Servicio 3">
-            <h3>Marketing Digital</h3>
-            <p>Impulsa tu negocio con nuestras estrategias de marketing digital efectivas.</p>
-        </div>
-       
-    </section>
+      </div>
+      <!-- Botones -->
+      <button id="prev" class="absolute top-1/2 left-4 -translate-y-1/2 bg-white bg-opacity-70 hover:bg-pink-200 text-pink-600 rounded-full p-2 shadow transition">
+        &#8592;
+      </button>
+      <button id="next" class="absolute top-1/2 right-4 -translate-y-1/2 bg-white bg-opacity-70 hover:bg-pink-200 text-pink-600 rounded-full p-2 shadow transition">
+        &#8594;
+      </button>
+    </div>
+    <!-- Fin Slider -->
+     <!-- section: servicios -->
+   <section id="servicios" class="py-12 bg-pink-50">
+  <h2 class="block mx-auto text-3xl font-bold text-pink-600 mb-10 text-center relative after:content-[''] after:block after:w-16 after:h-1 after:bg-pink-400 after:mx-auto after:mt-2">
+  Servicios
+</h2>
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+  <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center group hover:shadow-2xl transition-shadow duration-300">
+    <img src="img/servicio1.jpg" alt="Servicio 1"
+      class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-pink-200 transform transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
+    <h3 class="text-xl font-semibold text-pink-500 mb-2">Diseños Personalizados</h3>
+    <p class="text-gray-600 text-center">Topper para tortas, bolsitas golozineras y mucho más.</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center group hover:shadow-2xl transition-shadow duration-300">
+    <img src="img/servicio2.jpg" alt="Servicio 2"
+      class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-pink-200 transform transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
+    <h3 class="text-xl font-semibold text-pink-500 mb-2">Candy Bar</h3>
+    <p class="text-gray-600 text-center">Alquilamos las mesas para tu candy bar.</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center group hover:shadow-2xl transition-shadow duration-300">
+    <img src="img/servicio3.jpg" alt="Servicio 3"
+      class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-pink-200 transform transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
+    <h3 class="text-xl font-semibold text-pink-500 mb-2">Seguridad y Confianza</h3>
+    <p class="text-gray-600 text-center">Gracias a nuestros clientes.</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center group hover:shadow-2xl transition-shadow duration-300">
+    <img src="img/servicio3.jpg" alt="Servicio 3"
+      class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-pink-200 transform transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
+    <h3 class="text-xl font-semibold text-pink-500 mb-2">Ofertas Mensuales</h3>
+    <p class="text-gray-600 text-center">Consulta la oferta de este mes!</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center group hover:shadow-2xl transition-shadow duration-300">
+    <img src="img/servicio3.jpg" alt="Servicio 3"
+      class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-pink-200 transform transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
+    <h3 class="text-xl font-semibold text-pink-500 mb-2">Envios</h3>
+    <p class="text-gray-600 text-center">Cordina con nosotros tu envio.</p>
+  </div>
+  <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center group hover:shadow-2xl transition-shadow duration-300">
+    <img src="img/servicio3.jpg" alt="Servicio 3"
+      class="w-24 h-24 object-cover rounded-full mb-4 border-4 border-pink-200 transform transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
+    <h3 class="text-xl font-semibold text-pink-500 mb-2">Seguridad y Confianza</h3>
+    <p class="text-gray-600 text-center">Gracias a nuestros clientes.</p>
+  </div>
+</div>
+</section>
+<!-- Section: opiniones -->
+<section id="opiniones" class="py-12 bg-white">
+  <h2 class="block mx-auto text-3xl font-bold text-pink-600 mb-10 text-center relative after:content-[''] after:block after:w-16 after:h-1 after:bg-pink-400 after:mx-auto after:mt-2">
+  Opiniones de nuestros clientes
+</h2>
+  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="bg-pink-50 rounded-xl shadow-lg p-6 flex flex-col items-center">
+      <img src="img/user1.jpg" alt="Cliente 1" class="w-16 h-16 object-cover rounded-full mb-4 border-4 border-pink-200">
+      <p class="text-gray-700 italic text-center mb-2">"¡Excelente atención y productos hermosos! Mi fiesta fue un éxito gracias a sus diseños."</p>
+      <span class="font-semibold text-pink-500">- Mariana G.</span>
+    </div>
+    <div class="bg-pink-50 rounded-xl shadow-lg p-6 flex flex-col items-center">
+      <img src="img/user2.jpg" alt="Cliente 2" class="w-16 h-16 object-cover rounded-full mb-4 border-4 border-pink-200">
+      <p class="text-gray-700 italic text-center mb-2">"Muy recomendados, todo llegó a tiempo y superó mis expectativas."</p>
+      <span class="font-semibold text-pink-500">- Lucas P.</span>
+    </div>
+    <div class="bg-pink-50 rounded-xl shadow-lg p-6 flex flex-col items-center">
+      <img src="img/user3.jpg" alt="Cliente 3" class="w-16 h-16 object-cover rounded-full mb-4 border-4 border-pink-200">
+      <p class="text-gray-700 italic text-center mb-2">"Creatividad y calidad en cada detalle. ¡Volveré a comprar!"</p>
+      <span class="font-semibold text-pink-500">- Sofía R.</span>
+    </div>
+  </div>
+</section>
+<!-- Section: galeria -->
+<section id="galeria" class="py-12 bg-pink-50">
+  <h2 class="block mx-auto text-3xl font-bold text-pink-600 mb-10 text-center relative after:content-[''] after:block after:w-16 after:h-1 after:bg-pink-400 after:mx-auto after:mt-2">
+    Galería de productos entregados!
+  </h2>
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+      <img src="img/galeria1.jpg" alt="Producto 1" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Mesa Candy Bar Unicornio</h3>
+        <p class="text-gray-600 text-sm">Decoración temática y dulces personalizados.</p>
+      </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+      <img src="img/galeria2.jpg" alt="Producto 2" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Toppers y Souvenirs</h3>
+        <p class="text-gray-600 text-sm">Diseños exclusivos para tu evento.</p>
+      </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
+      <img src="img/galeria3.jpg" alt="Producto 3" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Candy Bar Animado</h3>
+        <p class="text-gray-600 text-sm">Mesas dulces con personajes infantiles.</p>
+      </div>
+    </div>
+    <!-- Agrega más productos según lo necesites -->
+  </div>
+</section>
+<!-- Section: tienda -->
+ <section id="tienda" class="py-12 bg-white scroll-mt-28">
+  <h2 class="block mx-auto text-3xl font-bold text-pink-600 mb-10 text-center relative after:content-[''] after:block after:w-16 after:h-1 after:bg-pink-400 after:mx-auto after:mt-2">
+    Tienda
+  </h2>
+  <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+    <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
+      <img src="img/tienda1.jpg" alt="Producto Tienda 1" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4 flex-1 flex flex-col">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Kit Candy Bar</h3>
+        <p class="text-gray-600 text-sm mb-4">Incluye toppers, bolsitas y decoración personalizada.</p>
+        <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Kit Candy Bar">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
+      <img src="img/tienda2.jpg" alt="Producto Tienda 2" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4 flex-1 flex flex-col">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Mesa Temática</h3>
+        <p class="text-gray-600 text-sm mb-4">Mesa decorada con temática a elección y dulces.</p>
+        <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Mesa Temática">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
+      <img src="img/tienda3.jpg" alt="Producto Tienda 3" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4 flex-1 flex flex-col">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Souvenirs Personalizados</h3>
+        <p class="text-gray-600 text-sm mb-4">Souvenirs con nombre y diseño exclusivo.</p>
+        <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Souvenirs Personalizados">Agregar al carrito</button>
+      </div>
+    </div>
+    <!-- Agrega más productos según lo necesites -->
+  </div>
+  <div id="carrito-contenedor" class="fixed top-28 left-0 w-72 bg-pink-50 border-r-2 border-pink-200 shadow-lg p-6 z-50 rounded-tr-2xl rounded-br-2xl hidden ">
+  <button id="cerrar-carrito" class="absolute top-2 right-2 text-pink-500 hover:text-pink-700 text-xl font-bold">&times;</button>
+  <h3 class="text-xl font-bold text-pink-600 mb-4">Carrito</h3>
+  <ul id="carrito-lista" class="mb-4"></ul>
+  <button id="limpiar-carrito" class="w-full mb-2 px-4 py-2 bg-gray-200 text-pink-600 rounded-full font-semibold hover:bg-gray-300 transition">Limpiar carrito</button>
+  <button id="enviar-whatsapp" class="w-full px-4 py-2 bg-green-500 text-white rounded-full font-semibold hover:bg-green-600 transition">Enviar pedido por WhatsApp</button>
+</div>
+
+</section>
+
+<script src="scripts/slider.js"></script>
+
+<footer class="bg-pink-50 border-t-2 border-pink-200 mt-16">
+  <div class="max-w-6xl mx-auto py-10 px-4 flex flex-col md:flex-row justify-between items-center gap-8">
+    <!-- Redes sociales -->
+    <div class="flex flex-col items-center md:items-start">
+      <span class="text-pink-600 font-semibold mb-2">Seguinos en redes:</span>
+      <div class="flex gap-4">
+        <a href="https://www.instagram.com/tuusuario" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.facebook.com/tuusuario" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl" aria-label="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://wa.me/549XXXXXXXXXX" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Medios de pago -->
+    <div class="flex flex-col items-center">
+      <span class="text-pink-600 font-semibold mb-2">Medios de pago:</span>
+      <div class="flex gap-4">
+        <img src="img/visa.png" alt="Visa" class="h-8" title="Visa">
+        <img src="img/mastercard.png" alt="Mastercard" class="h-8" title="Mastercard">
+        <img src="img/mercadopago.png" alt="MercadoPago" class="h-8" title="MercadoPago">
+        <!-- Agrega más logos si lo deseas -->
+      </div>
+    </div>
+    <!-- Invitación a recomendar -->
+    <div class="flex flex-col items-center md:items-end">
+      <span class="text-pink-600 font-semibold mb-2">¿Te gustó nuestro trabajo?</span>
+      <p class="text-gray-600 text-center md:text-right text-sm mb-2">¡Recomendanos en una historia de Instagram y etiquétanos!<br>
+        <span class="font-semibold text-pink-500">@cre_acionescj</span>
+      </p>
+    </div>
+  </div>
+  <div class="text-center text-gray-400 text-xs py-4 border-t border-pink-100">
+    © 2025 CreacionesCJ. Todos los derechos reservados.
+    Diseñado por <span class="text-pink-600 font-semibold">SEBAV</span>.
+  </div>
+</footer>
+
+<!-- Agrega Font Awesome para los íconos de redes si no lo tienes -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </body>
 </html>
