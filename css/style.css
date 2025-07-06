@@ -6,8 +6,12 @@ body {
 }
 
 
-.navbar-faded {
+.navbar-original {
+    background: linear-gradient(90deg, #ffb6c1 0%, #ffe4e1 100%);
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+  }
+
+  .navbar-faded {
     background: linear-gradient(90deg, #ffb6c1cc 0%, #ffe4e1cc 100%); /* 80% opacidad */
-    backdrop-filter: blur(6px);
-    transition: background 0.3s ease;
+    backdrop-filter: blur(4px);
   }

@@ -104,37 +104,31 @@ document.addEventListener('DOMContentLoaded', function () {
       '¡Hola! Quiero pedir:\n' +
       productos.map(p => `- ${p} x${carrito[p]}`).join('\n')
     );
-    window.open(`https://wa.me/549XXXXXXXXXX?text=${mensaje}`, '_blank');
+    window.open(`https://wa.me/5491136204786?text=${mensaje}`, '_blank');
   });
   
 });
 
- document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const navbar = document.getElementById('main-navbar');
     const navLinks = document.querySelectorAll('#nav-links a');
-    let lastScrollTop = 0;
 
-    // Cuando se hace clic en un link con href="#..."
+    // Al hacer clic en un link tipo "#"
     navLinks.forEach(link => {
       link.addEventListener('click', function () {
         const href = link.getAttribute('href');
         if (href.startsWith('#')) {
+          navbar.classList.remove('navbar-original');
           navbar.classList.add('navbar-faded');
         }
       });
     });
 
-    // Al hacer scroll, si es hacia arriba volvemos al color original
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll <= 10) {
+    // Solo volver al original si el scroll está arriba de todo
+    window.addEventListener('scroll', function () {
+      if (window.scrollY <= 10) {
         navbar.classList.remove('navbar-faded');
-      } else if (currentScroll < lastScrollTop) {
-        // Scrolleando hacia arriba
-        navbar.classList.remove('navbar-faded');
+        navbar.classList.add('navbar-original');
       }
-
-      lastScrollTop = currentScroll;
     });
   });
