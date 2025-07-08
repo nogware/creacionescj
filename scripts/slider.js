@@ -27,19 +27,19 @@ if (slider) {
     };
   }
 
-  // 🔁 Autoplay
+  // Autoplay
   let autoplay = setInterval(() => {
     index = (index + 1) % slides;
     showSlide();
   }, 4000);
 
-  // 🛑 Pausar al pasar el mouse
+  // Pausar al pasar el mouse
   const sliderContainer = document.querySelector('#slider');
   sliderContainer.addEventListener('mouseenter', () => {
     clearInterval(autoplay);
   });
 
-  // ▶️ Reanudar al salir del mouse
+  //  Reanudar al salir del mouse
   sliderContainer.addEventListener('mouseleave', () => {
     autoplay = setInterval(() => {
       index = (index + 1) % slides;
