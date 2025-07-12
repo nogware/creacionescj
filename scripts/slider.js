@@ -1,85 +1,183 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Slider
-// Slider
-const slider = document.querySelector('#slider > div');
-if (slider) {
-  const slides = slider.children.length;
-  let index = 0;
+document.addEventListener("DOMContentLoaded", () => {
+  // SLIDER PRINCIPAL
+  const slider = document.querySelector('#slider > div');
+  if (slider) {
+    const slides = slider.children.length;
+    let index = 0;
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
 
-  const nextBtn = document.getElementById('next');
-  const prevBtn = document.getElementById('prev');
+    const showSlide = () => {
+      slider.style.transform = `translateX(-${index * 100}%)`;
+    };
 
-  const showSlide = () => {
-    slider.style.transform = `translateX(-${index * 100}%)`;
-  };
-
-  if (nextBtn) {
-    nextBtn.onclick = () => {
+    nextBtn?.addEventListener('click', () => {
       index = (index + 1) % slides;
       showSlide();
-    };
-  }
+    });
 
-  if (prevBtn) {
-    prevBtn.onclick = () => {
+    prevBtn?.addEventListener('click', () => {
       index = (index - 1 + slides) % slides;
       showSlide();
-    };
-  }
+    });
 
-  // Autoplay
-  let autoplay = setInterval(() => {
-    index = (index + 1) % slides;
-    showSlide();
-  }, 4000);
-
-  // Pausar al pasar el mouse
-  const sliderContainer = document.querySelector('#slider');
-  sliderContainer.addEventListener('mouseenter', () => {
-    clearInterval(autoplay);
-  });
-
-  //  Reanudar al salir del mouse
-  sliderContainer.addEventListener('mouseleave', () => {
-    autoplay = setInterval(() => {
+    let autoplay = setInterval(() => {
       index = (index + 1) % slides;
       showSlide();
     }, 4000);
-  });
-}
 
+    const sliderContainer = document.querySelector('#slider');
+    sliderContainer?.addEventListener('mouseenter', () => clearInterval(autoplay));
+    sliderContainer?.addEventListener('mouseleave', () => {
+      autoplay = setInterval(() => {
+        index = (index + 1) % slides;
+        showSlide();
+      }, 4000);
+    });
+  }
 
-  
-
-  // Navbar transparencia y menú hamburguesa
+  // NAVBAR
   const navbar = document.getElementById('main-navbar');
   const menuToggle = document.getElementById('menu-toggle');
   const navLinks = document.getElementById('nav-links');
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener('click', function () {
-      navLinks.classList.toggle('hidden');
+  menuToggle?.addEventListener('click', () => {
+    navLinks.classList.toggle('hidden');
+    // Opcional: bloquear scroll al abrir menú
+    // document.body.classList.toggle('overflow-hidden');
+  });
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY <= 10) {
+      navbar?.classList.remove('navbar-faded');
+      navbar?.classList.add('navbar-original');
+    }
+  });
+
+  document.querySelectorAll('#nav-links a').forEach(link => {
+    link.addEventListener('click', function () {
+      if (this.getAttribute('href').startsWith('#')) {
+        navbar?.classList.remove('navbar-original');
+        navbar?.classList.add('navbar-faded');
+        if (window.innerWidth < 768) {
+          navLinks?.classList.add('hidden');
+          // document.body.classList.remove('overflow-hidden'); // si bloqueas scroll, desbloquearlo aquí
+        }
+      }
     });
+  });
+
+  // GALERÍA - CARRUSEL
+  function moveSlide(container, direction) {
+    const total = container.children.length;
+    let index = parseInt(container.dataset.index || 0);
+    index = (index + direction + total) % total;
+    container.style.transform = `translateX(-${index * 100}%)`;
+    container.dataset.index = index;
   }
 
-  if (navbar) {
-    window.addEventListener('scroll', function () {
-      if (window.scrollY === 0) {
-        navbar.classList.remove('transparent');
+  window.nextSlide = (btn) => {
+    const container = btn.closest('.relative').querySelector('.carousel-images');
+    moveSlide(container, 1);
+  };
+
+  window.prevSlide = (btn) => {
+    const container = btn.closest('.relative').querySelector('.carousel-images');
+    moveSlide(container, -1);
+  };
+
+  // Variables globales para modal de GALERÍA
+  const modalGaleria = document.getElementById('imageModal');
+  const modalImagesContainer = document.getElementById('modalImagesContainer');
+  const modalImages = document.getElementById('modalImages');
+
+  let modalCurrentIndex = 0;
+  let modalImgs = [];
+
+  // MODAL: abrir con carrusel imágenes (GALERÍA)
+  window.openModal = (clickedImg) => {
+    const carousel = clickedImg.closest('.carousel-images');
+    modalImgs = Array.from(carousel.querySelectorAll('img'));
+
+    modalImages.innerHTML = '';
+    modalImgs.forEach(img => {
+      const clone = img.cloneNode();
+      clone.removeAttribute('class');
+      clone.classList.add('min-w-full', 'h-full', 'object-contain', 'flex-shrink-0');
+      modalImages.appendChild(clone);
+    });
+
+    modalGaleria.classList.remove('hidden');
+
+    modalCurrentIndex = modalImgs.indexOf(clickedImg);
+    modalImages.style.transform = `translateX(-${modalCurrentIndex * 100}%)`;
+  };
+
+  window.closeModal = () => {
+    modalGaleria.classList.add('hidden');
+    modalImages.innerHTML = '';
+    modalImgs = [];
+    modalCurrentIndex = 0;
+  };
+
+  window.modalNext = () => {
+    modalCurrentIndex = (modalCurrentIndex + 1) % modalImgs.length;
+    modalImages.style.transform = `translateX(-${modalCurrentIndex * 100}%)`;
+  };
+
+  window.modalPrev = () => {
+    modalCurrentIndex = (modalCurrentIndex - 1 + modalImgs.length) % modalImgs.length;
+    modalImages.style.transform = `translateX(-${modalCurrentIndex * 100}%)`;
+  };
+
+  // SWIPE EN MODAL (GALERÍA)
+  let startX = 0;
+  let isSwiping = false;
+
+  modalImagesContainer.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isSwiping = true;
+  });
+
+  modalImagesContainer.addEventListener('touchmove', e => {
+    if (!isSwiping) return;
+    const deltaX = e.touches[0].clientX - startX;
+    if (Math.abs(deltaX) > 50) {
+      if (deltaX < 0) window.modalNext();
+      else window.modalPrev();
+      isSwiping = false;
+    }
+  });
+
+  modalImagesContainer.addEventListener('touchend', () => {
+    isSwiping = false;
+  });
+
+  // SWIPE EN CARRUSEL (GALERÍA)
+  document.querySelectorAll('.carousel-images').forEach(container => {
+    let startX = 0;
+    let isSwiping = false;
+
+    container.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isSwiping = true;
+    });
+
+    container.addEventListener('touchmove', (e) => {
+      if (!isSwiping) return;
+      const deltaX = e.touches[0].clientX - startX;
+      if (Math.abs(deltaX) > 50) {
+        moveSlide(container, deltaX < 0 ? 1 : -1);
+        isSwiping = false;
       }
     });
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', function () {
-        navbar.classList.add('transparent');
-        if (window.innerWidth < 768 && navLinks) {
-          navLinks.classList.add('hidden');
-        }
-      });
+    container.addEventListener('touchend', () => {
+      isSwiping = false;
     });
-  }
+  });
 
-  // Carrito
+  // CARRITO
   const carrito = {};
   const carritoLista = document.getElementById('carrito-lista');
   const botonesAgregar = document.querySelectorAll('.agregar-carrito');
@@ -88,16 +186,24 @@ if (slider) {
   const btnCerrar = document.getElementById('cerrar-carrito');
   const btnLimpiar = document.getElementById('limpiar-carrito');
 
+  // Opcional: cargar carrito de localStorage
+  
+  if(localStorage.getItem('carrito')) {
+    const saved = JSON.parse(localStorage.getItem('carrito'));
+    Object.assign(carrito, saved);
+    renderCarrito();
+    carritoContenedor?.classList.remove('hidden');
+  }
+  
+
   botonesAgregar.forEach(btn => {
     btn.addEventListener('click', () => {
       const producto = btn.getAttribute('data-producto');
-      if (carrito[producto]) {
-        carrito[producto]++;
-      } else {
-        carrito[producto] = 1;
-      }
+      carrito[producto] = (carrito[producto] || 0) + 1;
       renderCarrito();
       carritoContenedor?.classList.remove('hidden');
+      // Guardar en localStorage
+      localStorage.setItem('carrito', JSON.stringify(carrito));
     });
   });
 
@@ -106,10 +212,9 @@ if (slider) {
   });
 
   btnLimpiar?.addEventListener('click', () => {
-    for (let key in carrito) {
-      delete carrito[key];
-    }
+    Object.keys(carrito).forEach(k => delete carrito[k]);
     renderCarrito();
+     localStorage.removeItem('carrito');
   });
 
   function renderCarrito() {
@@ -129,59 +234,36 @@ if (slider) {
       return;
     }
     const mensaje = encodeURIComponent(
-      '¡Hola! Quiero pedir:\n' +
-      productos.map(p => `- ${p} x${carrito[p]}`).join('\n')
+      '¡Hola! Quiero pedir:\n' + productos.map(p => `- ${p} x${carrito[p]}`).join('\n')
     );
     window.open(`https://wa.me/5491136204786?text=${mensaje}`, '_blank');
   });
-  
-});
 
-document.addEventListener('DOMContentLoaded', function () {
-    const navbar = document.getElementById('main-navbar');
-    const navLinks = document.querySelectorAll('#nav-links a');
-
-    // Al hacer clic en un link tipo "#"
-    navLinks.forEach(link => {
-      link.addEventListener('click', function () {
-        const href = link.getAttribute('href');
-        if (href.startsWith('#')) {
-          navbar.classList.remove('navbar-original');
-          navbar.classList.add('navbar-faded');
-        }
-      });
-    });
-
-    // Solo volver al original si el scroll está arriba de todo
-    window.addEventListener('scroll', function () {
-      if (window.scrollY <= 10) {
-        navbar.classList.remove('navbar-faded');
-        navbar.classList.add('navbar-original');
-      }
-    });
-  });
-
-// Modal para mostrar imagen
-const imagenes = document.querySelectorAll('#tienda img');
-  const modal = document.getElementById('modal-imagen');
+  // TIENDA - MODAL DE IMAGEN (separado del modal de galería)
+  const imagenes = document.querySelectorAll('#tienda img');
+  const modalTienda = document.getElementById('modal-imagen');
   const imagenModal = document.getElementById('imagen-modal');
   const cerrarModal = document.getElementById('cerrar-modal');
 
   imagenes.forEach(imagen => {
     imagen.addEventListener('click', () => {
       imagenModal.src = imagen.src;
-      modal.classList.remove('hidden');
+      modalTienda.classList.remove('hidden');
     });
   });
 
-  cerrarModal.addEventListener('click', () => {
-    modal.classList.add('hidden');
+  cerrarModal?.addEventListener('click', () => {
+    modalTienda.classList.add('hidden');
     imagenModal.src = '';
   });
 
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.classList.add('hidden');
+  modalTienda?.addEventListener('click', (e) => {
+    if (e.target === modalTienda) {
+      modalTienda.classList.add('hidden');
       imagenModal.src = '';
     }
   });
+  
+});
+
+

@@ -72,7 +72,7 @@
     <img src="img/servicio1.png" alt="Servicio 1"
       class="w-24 h-24 object-cover mb-4 transform transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
     <h3 class="text-xl font-semibold text-pink-500 mb-2">Productos para Cumpleaños</h3>
-    <p class="text-gray-600 text-center"> Diseños personalizados como Topper para tortas, bolsitas golozineras y mucho más.<br> Visita nuestra <a href="#tienda" class="font-bold text-pink-500 underline">tienda</a>.</p>
+    <p class="text-gray-600 text-center"> Diseños personalizados como Topper para tortas, bolsitas golosineras y mucho más.<br> Visita nuestra <a href="#tienda" class="font-bold text-pink-500 underline">tienda</a>.</p>
   </div>
   <div class="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center group hover:shadow-2xl transition-shadow duration-300">
     <img src="img/servicio2.png" alt="Servicio 2"
@@ -132,33 +132,84 @@
 <!-- Section: galeria -->
 <section id="galeria" class="py-12 bg-pink-50">
   <h2 class="block mx-auto text-3xl font-bold text-pink-600 mb-10 text-center relative after:content-[''] after:block after:w-16 after:h-1 after:bg-pink-400 after:mx-auto after:mt-2">
-    Galería de productos entregados!
+    Galería de Productos Entregados
   </h2>
   <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-      <img src="img/galeria1.jpg" alt="Producto 1" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+    
+    <!-- TARJETA 1 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden group relative">
+      <div class="relative w-full h-96 overflow-hidden">
+        <div class="carousel-images flex transition-transform duration-500 ease-in-out" data-index="0">
+          <img src="img/galeria/galeria1.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria1b.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria1c.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria1d.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria1e.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+        </div>
+        <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 px-2 py-1 rounded-full shadow" onclick="prevSlide(this)">&#10094;</button>
+        <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 px-2 py-1 rounded-full shadow" onclick="nextSlide(this)">&#10095;</button>
+      </div>
       <div class="p-4">
-        <h3 class="text-lg font-semibold text-pink-500 mb-1">Mesa Candy Bar Unicornio</h3>
-        <p class="text-gray-600 text-sm">Decoración temática y dulces personalizados.</p>
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Mini Libritos</h3>
+        <p class="text-gray-600 text-sm">Para colorear con diseño personalizado.</p>
       </div>
     </div>
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-      <img src="img/galeria2.jpg" alt="Producto 2" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+
+    <!-- TARJETA 2 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden group relative">
+      <div class="relative w-full h-96 overflow-hidden">
+        <div class="carousel-images flex transition-transform duration-500 ease-in-out" data-index="0">
+          <img src="img/galeria/galeria2.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria2b.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria2c.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria2d.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+        </div>
+        <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 px-2 py-1 rounded-full shadow" onclick="prevSlide(this)">&#10094;</button>
+        <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 px-2 py-1 rounded-full shadow" onclick="nextSlide(this)">&#10095;</button>
+      </div>
       <div class="p-4">
-        <h3 class="text-lg font-semibold text-pink-500 mb-1">Toppers y Souvenirs</h3>
-        <p class="text-gray-600 text-sm">Diseños exclusivos para tu evento.</p>
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Vasos de Vinilo</h3>
+        <p class="text-gray-600 text-sm">Vasos con texto personalizado.</p>
       </div>
     </div>
-    <div class="bg-white rounded-xl shadow-lg overflow-hidden group">
-      <img src="img/galeria3.jpg" alt="Producto 3" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+
+    <!-- TARJETA 3 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden group relative">
+      <div class="relative w-full h-96 overflow-hidden">
+        <div class="carousel-images flex transition-transform duration-500 ease-in-out" data-index="0">
+          <img src="img/galeria/galeria3.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria3b.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria3c.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+        </div>
+        <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 px-2 py-1 rounded-full shadow" onclick="prevSlide(this)">&#10094;</button>
+        <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 px-2 py-1 rounded-full shadow" onclick="nextSlide(this)">&#10095;</button>
+      </div>
       <div class="p-4">
-        <h3 class="text-lg font-semibold text-pink-500 mb-1">Candy Bar Animado</h3>
-        <p class="text-gray-600 text-sm">Mesas dulces con personajes infantiles.</p>
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Decoraciones</h3>
+        <p class="text-gray-600 text-sm">Decoramos tu evento con la tematica que mas te guste.</p>
       </div>
     </div>
-    <!-- Agrega más productos según lo necesites -->
   </div>
 </section>
+
+<!-- MODAL PARA IMÁGENES -->
+<div id="imageModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 hidden">
+  <!-- Botón cerrar -->
+  <button onclick="closeModal()" class="absolute top-4 right-4 text-white bg-black/70 hover:bg-black/90 rounded-full p-2">
+    ✕
+  </button>
+
+  <!-- Flechas -->
+  <button onclick="modalPrev()" class="absolute left-4 top-1/2 -translate-y-1/2 text-white text-2xl">‹</button>
+  <button onclick="modalNext()" class="absolute right-4 top-1/2 -translate-y-1/2 text-white text-2xl">›</button>
+
+  <!-- Contenedor de imágenes -->
+  <div id="modalImagesContainer" class="overflow-hidden w-full max-w-4xl h-[80vh] flex items-center justify-center">
+    <div id="modalImages" class="flex transition-transform duration-300 ease-in-out h-full">
+      <!-- Imágenes se insertan dinámicamente -->
+    </div>
+  </div>
+</div>
 <!-- Section: tienda -->
  <section id="tienda" class="py-12 bg-white scroll-mt-28">
   <h2 class="block mx-auto text-3xl font-bold text-pink-600 mb-10 text-center relative after:content-[''] after:block after:w-16 after:h-1 after:bg-pink-400 after:mx-auto after:mt-2">
@@ -166,7 +217,7 @@
   </h2>
   <div class="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
     <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
-      <img src="img/tienda1.jpg" alt="Producto Tienda 1" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <img src="img/tienda1.jpg" alt="Producto Tienda 1" class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
       <div class="p-4 flex-1 flex flex-col">
         <h3 class="text-lg font-semibold text-pink-500 mb-1">Bolsitas PVC</h3>
         <p class="text-gray-600 text-sm mb-4">Souvenir para golozinas.</p>
@@ -174,7 +225,7 @@
       </div>
     </div>
     <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
-      <img src="img/tienda2.jpg" alt="Producto Tienda 2" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <img src="img/tienda2.jpg" alt="Producto Tienda 2" class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
       <div class="p-4 flex-1 flex flex-col">
         <h3 class="text-lg font-semibold text-pink-500 mb-1">Vaso con Vinilo</h3>
         <p class="text-gray-600 text-sm mb-4">Personalizables para fiestas.</p>
@@ -182,11 +233,27 @@
       </div>
     </div>
     <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
-      <img src="img/tienda3.png" alt="Producto Tienda 3" class="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105">
+      <img src="img/tienda3.png" alt="Producto Tienda 3" class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
       <div class="p-4 flex-1 flex flex-col">
         <h3 class="text-lg font-semibold text-pink-500 mb-1">Sobres BRAINROT</h3>
-        <p class="text-gray-600 text-sm mb-4">Cartas Coleccionables, arma tu propio mazo tralalero.</p>
+        <p class="text-gray-600 text-sm mb-4">5 Cartas Coleccionables, arma tu propio mazo tralalero.</p>
         <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Sobres BRAINROT">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
+      <img src="img/tienda4.jpg" alt="Producto Tienda 4" class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4 flex-1 flex flex-col">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Mini Librito</h3>
+        <p class="text-gray-600 text-sm mb-4">Para colorear con diseño personalizado.</p>
+        <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Mini Librito">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
+      <img src="img/tienda5.jpg" alt="Producto Tienda 5" class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4 flex-1 flex flex-col">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Cajita Dulcera</h3>
+        <p class="text-gray-600 text-sm mb-4">Caja tipo lonchera.</p>
+        <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Cajita Dulcera">Agregar al carrito</button>
       </div>
     </div>
     <!-- Agrega más productos según lo necesites -->
