@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensaje = encodeURIComponent(
       '¡Hola! Quiero pedir:\n' + productos.map(p => `- ${p} x${carrito[p]}`).join('\n')
     );
-    window.open(`https://wa.me/5491136204786?text=${mensaje}`, '_blank');
+    window.open(`https://wa.me/5491167081404?text=${mensaje}`, '_blank');
   });
 
   // TIENDA - MODAL DE IMAGEN (separado del modal de galería)

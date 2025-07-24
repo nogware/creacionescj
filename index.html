@@ -42,13 +42,13 @@
     <div class="relative w-full max-w-4xl mx-auto mt-8 mb-12">
       <div id="slider" class="overflow-hidden rounded-2xl shadow-lg">
         <div class="flex transition-transform duration-500" style="transform: translateX(0%);">
-          <a href="https://wa.me/5491136204786?text=Hola%2C%20quiero%20la%20promo%20del%20mes" target="_blank" class="w-full h-64 flex-shrink-0 block">
+          <a href="https://wa.me/5491167081404?text=Hola%2C%20quiero%20la%20promo%20del%20mes" target="_blank" class="w-full h-64 flex-shrink-0 block">
               <img src="img/slider1.svg" class="w-full h-full object-cover" alt="Slide 1">
           </a>
-          <a href="https://wa.me/5491136204786?text=Hola%2C%20quiero%20consultar%20un%20presupuesto%20para%20decoración" target="_blank" class="w-full h-64 flex-shrink-0 block">
+          <a href="https://wa.me/5491167081404?text=Hola%2C%20quiero%20consultar%20un%20presupuesto%20para%20decoración" target="_blank" class="w-full h-64 flex-shrink-0 block">
               <img src="img/slider2.svg" class="w-full h-full object-cover" alt="Slide 2">
           </a>
-          <a href="https://enlace1.com" target="_blank" class="w-full h-64 flex-shrink-0 block">
+          <a href="#" target="_blank" class="w-full h-64 flex-shrink-0 block">
               <img src="img/slider3.svg" class="w-full h-full object-cover" alt="Slide 3">
           </a>
         </div>
@@ -309,6 +309,24 @@
       </div>
     </div>
 
+    <!-- TARJETA 10 -->
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden group relative">
+      <div class="relative w-full h-96 overflow-hidden">
+        <div class="carousel-images flex transition-transform duration-500 ease-in-out" data-index="0">
+          <img src="img/galeria/galeria10.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria10b.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria10c.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+          <img src="img/galeria/galeria10d.jpg" class="w-full h-96 object-cover flex-shrink-0 cursor-pointer" alt="" onclick="openModal(this)">
+        </div>
+        <button class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 px-2 py-1 rounded-full shadow" onclick="prevSlide(this)">&#10094;</button>
+        <button class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white bg-opacity-70 hover:bg-opacity-100 px-2 py-1 rounded-full shadow" onclick="nextSlide(this)">&#10095;</button>
+      </div>
+      <div class="p-4">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Letras y Numeros 3D</h3>
+        <p class="text-gray-600 text-sm">Es una decoracion que no tiene que faltar en tu fiesta!</p>
+      </div>
+    </div>
+
 
   </div>
 </section>
@@ -457,6 +475,22 @@
         <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Tarjetitas para Comunión">Agregar al carrito</button>
       </div>
     </div>
+    <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
+      <img src="img/tienda16.jpg" alt="Producto Tienda 16" class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4 flex-1 flex flex-col">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Letras 3D</h3>
+        <p class="text-gray-600 text-sm mb-4">Letras y numeros personalizables para tu evento.</p>
+        <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Letras 3D">Agregar al carrito</button>
+      </div>
+    </div>
+    <div class="bg-pink-50 rounded-xl shadow-lg overflow-hidden group flex flex-col">
+      <img src="img/tienda17.jpg" alt="Producto Tienda 17" class="w-full h-96 object-cover transition-transform duration-300 group-hover:scale-105">
+      <div class="p-4 flex-1 flex flex-col">
+        <h3 class="text-lg font-semibold text-pink-500 mb-1">Valijita</h3>
+        <p class="text-gray-600 text-sm mb-4">Especial para agregarle golosinas.</p>
+        <button class="agregar-carrito mt-auto px-4 py-2 bg-pink-500 text-white rounded-full font-semibold hover:bg-pink-600 transition" data-producto="Valijita">Agregar al carrito</button>
+      </div>
+    </div>
     <!-- Agrega más productos según lo necesites -->
   </div>
   <div id="carrito-contenedor" class="fixed top-28 left-0 w-72 bg-pink-50 border-r-2 border-pink-200 shadow-lg p-6 z-50 rounded-tr-2xl rounded-br-2xl hidden ">
@@ -485,10 +519,10 @@
         <a href="https://www.instagram.com/cre_acionescj" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl" aria-label="Instagram">
           <i class="fab fa-instagram"></i>
         </a>
-        <a href="https://www.facebook.com/tuusuario" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl" aria-label="Facebook">
-          <i class="fab fa-facebook"></i>
+        <a href="https://www.tiktok.com/@cre_acionescj?_t=ZM-8yHhnUh8iL2&_r=1" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl" aria-label="Facebook">
+          <i class="fab fa-tiktok"></i>
         </a>
-        <a href="https://wa.me/549XXXXXXXXXX" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl" aria-label="WhatsApp">
+        <a href="https://wa.me/5491167081404" target="_blank" class="text-pink-500 hover:text-pink-700 text-2xl" aria-label="WhatsApp">
           <i class="fab fa-whatsapp"></i>
         </a>
       </div>
@@ -513,7 +547,7 @@
   </div>
   <div class="text-center text-gray-400 text-xs py-4 border-t border-pink-100">
     © 2025 CreacionesCJ Todos los derechos reservados.
-    <br>Diseñado por <span class="text-pink-600 font-semibold">SEBAV</span>.
+    <br>Diseñado por <a href="https://www.instagram.com/sebav.code/" target="_blank" <span class="text-pink-600 font-semibold">SEBAV</span>.</a>
   </div>
 </footer>
 
